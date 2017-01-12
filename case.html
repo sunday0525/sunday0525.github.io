@@ -333,6 +333,10 @@
 					var n = $(this).index();
 					$('.list_show .cont').html(listShowHtml(n));
 					$('.list_show').transition({scale:1},300);
+					var myScrolli = new IScroll('.cont .description', {
+						mouseWheel: true,
+			    		scrollbars: true
+					});
 				}
 			});
 		})
@@ -341,10 +345,10 @@
 	$('.list').find('li').on('click',function(){
 		var n = $(this).index();
 		$('.list_show .cont').html(listShowHtml(n));
-		console.log($(window).width());
 		var srollObj = $(window).width() < '1023'? '.cont .description': '.cont .img';
 			var myScrolli = new IScroll(srollObj, {
-				mouseWheel: true
+				mouseWheel: true,
+	    		scrollbars: true
 			});
 			
 		$('.list_show').transition({scale:1},300);
@@ -373,6 +377,8 @@
 	});
 	//listShowHtml(0);
 	function listShowHtml(n){
+		var wrapW = $('.list_show .cont').width();
+		var h = wrapW*data[n].h/data[n].w;
 		var str = '<div class="description">'
 					+'<div class="list_wrap">'
 						+'<h3>'+ data[n].covertitle +'</h3>'
@@ -382,7 +388,7 @@
 							+'<p>项目属性：'+ data[n].attr.join(' ') +'</p>'
 						+'</div>'
 						+'<div class="sm_img">'
-							+'<p><img src="'+ data[n].img +'"/></p>'
+							+'<p style="height:'+h+'px"><img src="'+ data[n].img +'"/></p>'
 						+'</div>'
 						+'<div class="tip">'
 							+'<p>本方案属分形科技原创作品</p>'
@@ -394,7 +400,7 @@
 				+'</div>'
 				+'<div class="img">'
 					+'<div class="list_wrap">'
-						+'<p>'
+						+'<p style="height:'+h+'px">'
 							+'<img src="'+ data[n].img +'"/>'
 						+'</p>'
 					+'</div>'
