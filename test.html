@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width,user-scaleable=no"/>
+	<title>Document</title>
+	<style type="text/css">
+		body,p{
+			margin: 0;
+		}
+		html,body {
+			height: 100%;
+			overflow: hidden;
+		}
+		#box {
+			position: relative;
+			height: 500px;
+			border: 1px solid #000;
+			overflow: hidden;
+		}
+		#box .progress-content {
+			position: absolute;
+			top:0;
+			left: 0;
+			width: 100%;
+			background: greenyellow;
+		}
+		#box .progress-content p {
+			display: inline-block;
+			width: 140px;
+			margin: 0;
+			font: 40px/80px "微软雅黑";
+			color: #fff;
+		}
+	</style>
+	<script src="js/iscroll.js" type="text/javascript" charset="utf-8"></script>
+</head>
+	    	
+<body>
+	<div id="box">
+		<div class="progress-content">
+			<p>111111</p>
+			<p>222222</p>
+			<p>333333</p>
+			<p>444444</p>
+			<p>555555</p>
+			<p>666666</p>
+			<p>777777</p>
+			<p>888888</p>
+			<p>999999</p>
+			<p>aaaaa</p>
+			<p>bbbbbb</p>
+			<p>cccccc</p>
+			<p>dddddd</p>
+			<p>eeeeee</p>
+			<p>ffffff</p>
+			<p>ggg</p>
+			<p>hhhhh</p>
+			<p>iiii</p>
+			<p>jjj</p>
+			<p>kk</p>
+			<p>ll</p>
+			<p>mm</p>
+			<p>nn</p>
+			<p>oo</p>
+			<p>pp</p>
+			<p>qq</p>
+			<p>rr</p>
+			<p>ss</p>
+			<p>tt</p>
+			<p>u</p>
+			<p>vv</p>
+			<p>ww</p>
+			<p>xx</p>
+			<p>yy</p>
+			<p>zz</p>
+		</div>
+	</div>
+</body>
+</html>
+<script type="text/javascript">
+	//var t = new ProgressBar('box');
+	var myScroll = new IScroll('#box', {
+	    mouseWheel: true,
+	    scrollbars: true
+	});
+</script>

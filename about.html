@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=yes">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="css/public.css"/>
+	<link rel="stylesheet" type="text/css" href="css/index.css"/>
+	<script src="js/html5shiv.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/public.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/tools.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+	<header class="header">
+		<h1 class="f_left logo"><a href="index.html">分形科技</a></h1>
+		<div class="link">
+			<div class="edition">
+				<a href="http://www.fractal-technology.com/index.html">商务版</a>
+				<a href="http://2014.fractal-technology.com">老版官网入口</a>
+			</div>
+			<div class="tel">400.6446.365&nbsp;&nbsp; 010.64928252</div>
+		</div>		
+	</header>
+	<section class="menu">
+		<i></i>
+		<i></i>
+		<i></i>
+	</section>
+	<section class="serv">
+		<a href="http://p.qiao.baidu.com//im/index?siteid=3557976&ucid=3095672" class="phone"></a>
+		<a href="http://p.qiao.baidu.com//im/index?siteid=3557976&ucid=3095672">
+			<i></i>
+			<i></i>
+			<i></i>
+		</a>
+	</section>
+	<section class="sidebar">
+		<nav>
+			<div>
+				<a href="service.html">
+					<h3>面面俱到</h3>
+					<p>我们为您提供企业品牌在互联网<br />最全面专业的服务</p>
+				</a>
+			</div>
+			<div>
+				<a href="case.html">
+					<h3>别具匠心</h3>
+					<p>闻道有先后，术业有专攻<br />超越自我，用更加精湛的技艺诠释您的需求</p>
+				</a>
+			</div>
+			<div>
+				<a href="about.html">
+					<h3>持之以恒</h3>
+					<p>从开始的那刻起<br />我们就不断的攀升，坚持我们的信念</p>
+				</a>
+			</div>
+		</nav>
+	</section>
+	<div class="banner">
+		<div class="banner_wrap">
+		    <video class="vbg" loop autoplay>
+		      <source src="source/bg_n.mp4" type="video/mp4"></source>
+		      <source src="source/bg_n.webm" type="video/webm"></source>
+		    </video>
+		</div>
+	</div>
+	<article class="article about">
+		<a href="service.html" class="to_service to_link"></a>
+		<a href="case.html" class="to_case to_link"></a>
+		<div class="content">
+			<div class="item">
+				<h1>400.6446.365</h1>
+		        <h2>Address</h2>
+		        <h3>北京市朝阳区惠新东街6号北京乡镇企业大厦9层</h3>
+		        <h4>010-64928252&nbsp;&nbsp;64929732&nbsp;&nbsp;64927152&nbsp;&nbsp;64913842&nbsp;&nbsp;64913142</h4>
+		        <div class="txt">
+		          <p>北京分形科技有限公司成立于2003年</p>
+		          <p>是中国著名的网络品牌策划、网络品牌形象设计公司</p>
+		          <p>&nbsp;</p>
+		          <p>我们的经营理念：责任、热情、品质、包容</p>
+		          <p>主要业务范围包括：网络营销推广，年度运营服务，电商平台搭建，网站定制建设，移动端与应用，营销型互动游戏，虚拟现实</p>
+		          <p>北京分形科技有限公司在哈尔滨、湖北武汉和日本东京设立有分公司，目标是将分形科技</p>
+		          <p>打造成网络品牌策划、网络品牌形象设计行业的国际顶级企业</p></div>
+		    </div>      
+		</div>
+	</article>
+	<footer class="footer">
+		<div class="f_left clearfix">
+			<p class="info">北京市朝阳区惠新东街6号乡镇企业大厦9层 100022</p>
+			<p class="info">©2003-2016 fractal 京ICP备 05007162 京公网安备 110105019435</p>
+			<p>Tel：400-6446-365 010-64928252 64929732</p>
+		</div>
+		<div class="f_right">
+			<a href="#"></a>
+			<a href="#"></a>
+			<a href="#"></a>
+			<a href="#"></a>
+		</div>
+	</footer>
+</body>
+</html>
+<script type="text/javascript">
+	if($(window).width()/$(window).height()>1920/1080){
+	$(".vbg").height($(window).width()/1920*1080);
+}
+else{
+	$(".vbg").width($(window).height()/1080*1920);
+}
+//$(".vbg")[0].play();
+var sto1;
+$(window).resize(function(){
+	clearTimeout(sto1);
+	sto1=setTimeout(function(){
+		if($(window).width()/$(window).height()>1920/1080){
+			$(".vbg").height($(window).width()/1920*1080);
+			$(".vbg").width($(window).width());
+		}
+		else{
+			$(".vbg").width($(window).height()/1080*1920);
+			$(".vbg").height($(window).height());
+		}
+	},100);
+});
+
+
+	settit(".about .content h1");
+	settit(".about .content h2");
+	settit(".about .content h3");
+	settit(".about .content h4");
+	$(".about .content .txt p").each(function(index, element) {
+	   settxt($(this));
+	});
+	
+	showtt(".about .content h1",0);
+	showtt(".about .content h2",500);
+	showtt(".about .content h3",1000);
+	showtt(".about .content h4",1000);
+	showtt(".about .content .showtxt",2500);
+	$('.item').eq(0).addClass('act');
+</script>

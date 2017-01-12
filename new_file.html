@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<script src="js/jquery-3.1.1.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/jquery.transit.js" type="text/javascript" charset="utf-8"></script>
+<style type="text/css">
+ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+	.box {
+		width: 600px;
+		height: 200px;
+		margin: 100px auto 0;
+		border: 2px solid #000;
+	}
+	.box ul {
+		position: relative;
+		width: 50%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.box .right {
+		float: right;
+	}
+	.box .left {
+		float: left;
+	}
+	.box li {
+		position: absolute;
+		top: -100%;
+		width: 200%;
+		height: 300%;
+		font: 80px/600px simhei;
+		transform: rotate(180deg);
+		z-index: 1;
+	}
+	.box li.act {
+		z-index: 3;
+	}
+	.box .left li {
+		transform-origin: right center;
+		left: -100%;
+	}
+	.box .right li {
+		transform-origin: left center;
+		right: -100%;
+	}
+	.box ul li:nth-of-type(1){
+		background: deepskyblue;
+		transform: rotate(0);
+	}
+	.box ul li:nth-of-type(2){
+		background: lightcoral;
+	}
+	.box ul li:nth-of-type(3){
+		background: lightcyan;
+	}
+	.box ul li:nth-of-type(4){
+		background: lightgrey;
+	}
+	.box ul li:nth-of-type(5){
+		background: palevioletred;
+	}
+</style>
+</head>
+<body>
+	<div class="box">
+		<ul class="left">
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+		</ul>
+		<ul class="right">
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+		</ul>m
+	</div>
+</body>
+</html>
+<script src="js/tools.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+var n = 3;
+a()
+	function a(){
+		
+		n+=0.1;
+		var m = n.toFixed(1);
+		console.log(m)
+		requestAnimationFrame(a);
+	}
+	
+	
+
+	var i = 0;
+	var onoff = false;
+	$(document).on('click',function(){
+		if(onoff) return;
+		onoff = true;
+		nowRot(i);
+		i++;
+		i %= 5;
+		nextRot(i);
+	})
+	
+	
+	var box = $('.box')[0];
+	scrollEve(box,rota);
+	function rota(){
+		if(onoff) return;
+		onoff = true;
+		if(box.flag){
+			nowRot(i);
+			i--;
+			i = i<0 ? i = 4: i;
+			nextRot(i);	
+		}else{
+			nowRot(i);
+			i++;
+			i %= 5;
+			nextRot(i);	
+		}
+	}
+	
+	
+	function nowRot(n){
+		$('.left').find('li').eq(n).transition({rotate:180},1200);
+		$('.right').find('li').eq(n).transition({rotate:180},1200);
+	}
+	function nextRot(n){
+		$('.left').find('li').eq(n).css({rotate:-180}).transition({rotate:0},1200);
+		$('.right').find('li').eq(n).css({rotate:-180}).transition({rotate:0},1200,function(){
+			onoff = false;
+		});
+	}
+</script>
