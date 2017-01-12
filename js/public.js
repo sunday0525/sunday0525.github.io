@@ -15,7 +15,7 @@ $('a').each(function(ind,item){
 	});
 	$(item).on('touchend',function(){
 		if($(this).attr('ismove') != 'true') {
-			window.location.href = $(this).attr('href');
+			window.location.href = this.href;
 		}
 		$(this).attr('ismove','false');
 	})
